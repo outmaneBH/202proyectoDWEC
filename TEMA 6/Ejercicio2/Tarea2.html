@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tarea 2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #div1 {
+            padding: 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        form * {
+            margin: 6px;
+        }
+
+        img {
+            width: 200px;
+            height: 200px;
+        }
+
+        #txta1 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">
+        <img id="img1" src="0.jpg" alt="">
+        <form method="get">
+            <label for="">Tipo de Incidencia</label>
+            <select id="s1">
+                <option value="0">distribución</option>
+                <option value="1">oficina</option>
+                <option value="2">producción</option>
+            </select>
+            <br>
+            <label>Numero de serie</label>
+            <input type="text" placeholder="111AAA(1|2|A)" id="txt1"><br>
+            <input type="button" id="btn1" value="Mostrar Descripcion" /><br>
+            <textarea id="txta1" cols="30" rows="3"></textarea><br>
+            <input type="submit" value="Enviar Datos">
+            <br><span id="sp1"></span>
+        </form>
+        
+    </div>
+
+    <script>
+
+        var select = document.getElementById('s1');
+        var img = document.getElementById('img1');
+        var span = document.getElementById('sp1');
+        var btn = document.getElementById('btn1');
+
+        select.addEventListener("change", change);
+        var inputSerie = document.getElementById('txt1');
+        function change() {
+            img.setAttribute("src", select.value + ".jpg");
+        }
+
+
+        btn.addEventListener("click", mostrarArea);
+        function mostrarArea() {
+            document.getElementById('txta1').style.display = "inline";
+        }
+
+        //Control de input
+        var reg = /^[0-9]{3}[A-Z]{3}[12A]$/;
+
+        document.body.addEventListener("submit", validar);
+        function validar(e) {
+            if (!reg.test(inputSerie.value)) {
+                inputSerie.style.border = "1px solid red"
+                span.innerHTML = "Error de validacion";
+                span.style.background = "red";
+                span.style.color = "white";
+            }else{
+                span.style.background = "green";
+                span.innerHTML = "Todo bien";
+            }
+            event.preventDefault();
+        }
+        inputSerie.addEventListener("click", probar);
+        function probar() {
+            inputSerie.style.border = "1px solid gray"
+            span.style.background = "white"
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+        p {
+            font-size: 20px;
+        }
+
+        #div1 {
+            position: fixed;
+            background-color: yellow;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Ejercicio 1</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit molestiae eum eveniet, provident eaque non
+        repellat nihil iure adipisci culpa quaerat, modi ea harum iste ut doloribus in, nobis quia!</p>
+    <p>Ipsam ullam ut excepturi molestiae provident vel accusantium impedit magnam maiores. Neque dolores quasi
+        asperiores aliquid corporis distinctio quod maiores dicta quos, sit officiis quas quae dolor similique expedita
+        nulla!</p>
+    <p>Reiciendis accusamus minima sit quidem laudantium illum excepturi sapiente omnis perspiciatis, quos fugiat,
+        quisquam dolor magnam! Officiis laboriosam hic quae quo! Esse distinctio fugiat necessitatibus et tempore optio
+        veniam accusamus.</p>
+    <p>Cupiditate esse veniam itaque minus porro, quia aliquam suscipit atque voluptatibus recusandae maiores
+        exercitationem ad sed unde dignissimos accusamus ullam, ex labore incidunt sint, vitae illum. Sed perferendis
+        nesciunt consectetur?</p>
+    <p>Animi vel inventore nostrum blanditiis ipsa itaque ratione debitis nobis id adipisci magni ex modi unde nam
+        officia ducimus numquam iusto, perspiciatis amet, sit ipsam velit esse recusandae. Hic, enim.</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, harum recusandae quod voluptatibus accusamus
+        incidunt repudiandae voluptate modi corrupti neque molestiae magnam consectetur dolor. Debitis, id. Hic quaerat
+        eaque quasi!</p>
+    <p>Error suscipit aliquid, dolore, neque illo hic dignissimos incidunt beatae modi sunt deleniti harum, inventore in
+        libero assumenda velit reprehenderit ducimus. Sunt quia non labore doloribus cum odit atque aut?</p>
+    <p>Ad modi tempore, facilis vel accusantium natus minus illum ratione dignissimos? Praesentium, optio inventore
+        impedit quis quibusdam numquam in unde ullam nulla omnis ea magnam suscipit velit commodi iste consequuntur.</p>
+    <p>Excepturi molestias odio officiis et qui optio dolorem beatae maxime sapiente error magnam, temporibus mollitia
+        voluptatem dignissimos similique modi quaerat dicta soluta quia quas nostrum doloribus nesciunt exercitationem
+        adipisci. Minima?</p>
+    <p>Tempora praesentium quo ab molestias, temporibus ipsa accusamus numquam expedita officia, magni quaerat vitae.
+        Libero beatae architecto eligendi quis nisi iste ea quia facere exercitationem esse. Illo nobis mollitia nihil?
+    </p>
+    <p>Reprehenderit illum eveniet ex dolorem nam officiis obcaecati culpa accusamus modi similique fuga repellendus
+        soluta suscipit ut aliquid aperiam consectetur sapiente aspernatur voluptatem, perferendis optio delectus vitae
+        praesentium! Exercitationem, sit.</p>
+    <p>Animi eos numquam laborum neque, hic qui quas temporibus facilis inventore harum dolores unde. Veniam placeat,
+        hic, ratione maiores, nobis officia debitis quo at perferendis architecto deserunt eius dolorum corrupti!</p>
+    <div id="div1">
+        te sigo
+    </div>
+    <script>
+        document.body.addEventListener("mousemove", mostrarCuadro);
+
+        function mostrarCuadro(e) {
+            var div = document.getElementById("div1");
+            div.style.left = e.clientX+"px";
+            div.style.top = e.clientY+"px";
+        }
+    </script>
+</body>
+
+</html>

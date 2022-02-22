@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        p {
+            font-size: 30px;
+        }
+
+        span {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="demo">Velocidad <span id="sp1">0</span> </p>
+    <script>
+        document.body.addEventListener("keydown", fn1);
+        var sp1 = document.getElementById("sp1");
+        var a = 0;
+        function fn1(event) {
+            var x = event.key;
+            switch (x) {
+                case "ArrowDown":
+                    a--;
+                    break;
+                case "ArrowUp":
+                    a++;
+                    break;
+                default: "";
+                    break;
+            }
+            if (a < 0 || a > 120) {
+                alert("EL numero ha llegado a 0 o a 120");
+            }
+            else{
+                sp1.innerHTML = a;
+            }
+        }
+    </script>
+</body>
+
+</html>

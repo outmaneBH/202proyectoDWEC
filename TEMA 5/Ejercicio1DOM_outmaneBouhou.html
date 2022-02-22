@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document Object Model - Creación y modificación de elementos</title>
+    <meta charset="UTF-8">
+    <style>
+        .miClase {
+            color: red;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", inicio);
+        function inicio() {
+            document.getElementById("cambiarTextos").addEventListener("click", cambiarTextos);
+            document.getElementById("cambiarClases").addEventListener("click", cambiarClases);
+            document.getElementById("quitarClases").addEventListener("click", quitarClases);
+        }
+        var a = document.getElementsByTagName('p');
+        function cambiarTextos() {
+
+            a[0].textContent = "El primer párrafo Ha cambiado";
+            a[1].innerHTML = "El segundo párrafo ha cambiado";
+            a[2].textContent = "El tercer párrafo ha cambiado";
+        }
+
+        function cambiarClases() {
+            a[0].className = "miClase";
+            a[1].setAttribute('class', 'miClase');
+            a[2].setAttribute('class', 'miClase');
+        }
+
+        function quitarClases() {
+            for (let i = 0; i <= a.length; i++) {
+                a[i].className = "";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <p id="parrafo1">Este es el primer párrafo</p>
+        <p id="parrafo2">Este es el segundo párrafo</p>
+        <p id="parrafo3" class="miClase">Este es el tercer párrafo</p>
+    </div>
+    <br />
+    <button id="cambiarTextos">Cambiar texto de párrafos</button>
+    <button id="cambiarClases">Cambiar clases de párrafos</button>
+    <button id="quitarClases">Quitar clases de todos los párrafos</button>
+</body>
+</html>

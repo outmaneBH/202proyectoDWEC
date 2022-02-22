@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Document Object Model</title>
+    <style>
+        .miClase {
+            color: red;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", inicio);
+
+        function inicio() {
+            document.getElementById("crearParrafo").addEventListener("click", crearParrafo);
+            document.getElementById("crearImagen").addEventListener("click", crearImagen);
+            document.getElementById("borrarUltimo").addEventListener("click", borrarUltimo);
+            document.getElementById("borrarPrimero").addEventListener("click", borrarPrimero);
+            document.getElementById("sustituirPrimeroVacio").addEventListener("click", sustituirPrimero);
+        }
+
+        function crearParrafo() {
+            let texto = document.getElementById('texto');
+            let np = document.createElement("p");
+            if (texto.value == "") {
+                alert("Tienes que Escribir algo,Text Aria Esta vacio");
+            } else {
+
+                // np.innerHTML = texto.value;
+                //Añadir texto al element P con create Text Node
+                let nodoT = document.createTextNode(texto.value);
+                np.appendChild(nodoT);
+                np.setAttribute('class', 'miClase');
+                document.getElementById('div1').appendChild(np);
+                texto.value = "";
+            }
+
+        }
+
+        function crearImagen() {
+            let src = prompt('Introduzca la ruta de la imagen');
+            let alt = prompt('Introduzca el texto alternativo de la imagen');
+            let imagen = document.createElement("img");
+
+            imagen.setAttribute('src', src);
+            imagen.setAttribute('alt', alt);
+            //otro metodo de atributo añdido
+            imagen.width = '200';
+            imagen.height = '200';
+
+            //añadimos la imagen
+            document.getElementById('div1').appendChild(imagen);
+        }
+
+        function borrarUltimo() {
+            let div1 = document.getElementById('div1');
+            div1.removeChild(div1.lastElementChild);
+        }
+
+        function borrarPrimero() {
+            let div1 = document.getElementById('div1');
+            div1.removeChild(div1.firstElementChild);
+        }
+
+        function sustituirPrimero() {
+
+            let div1 = document.getElementById('div1');
+            let nuevoP = document.createElement("p");
+            nuevoP.innerHTML = 'Vacio';
+          
+            div1.replaceChild(div1.appendChild(nuevoP), div1.firstChild);
+            nuevoP.setAttribute('class', 'miClase');
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <br />
+    <textarea id="texto"></textarea>
+    <br />
+    <button id="crearParrafo">Crear parrafo</button>
+    <button id="crearImagen">Crear imagen</button>
+    <button id="borrarUltimo">Borrar ultimo</button>
+    <button id="borrarPrimero">Borrar primero</button>
+    <button id="sustituirPrimeroVacio">Sustituir primer párrafo por vacío</button>
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 900px;
+        }
+
+        #cuadro {
+            height: 300px;
+            width: 500px;
+            border: 2px gray solid;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="cuadro">
+
+        </div>
+    </div>
+    <script>
+        var div = document.getElementById('cuadro');
+        div.addEventListener("mouseover", colorVerde);
+        function colorVerde() {
+            div.style.backgroundColor = "green";
+        }
+        div.addEventListener("mouseleave", colorDe);
+        function colorDe() {
+            div.style.backgroundColor = "white";
+        }
+        div.addEventListener("mousedown", colorRed);
+        function colorRed(e) {
+            if (e.button == 0) {
+                div.style.backgroundColor = "red";
+            } else if (e.button == 2) {
+                div.style.backgroundColor = "blue";
+            }
+        }
+        div.addEventListener("mouseup", colorGreen);
+        function colorGreen(e) {
+            if (e.button == 0) {
+                div.style.backgroundColor = "green";
+            } else if (e.button == 2) {
+                div.style.backgroundColor = "green";
+            }
+        }
+        div.addEventListener("contextmenu", color);
+        function color(e) {
+            e.preventDefault();
+        }
+
+    </script>
+</body>
+
+</html>

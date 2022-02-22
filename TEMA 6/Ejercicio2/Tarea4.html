@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tarea4</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        h1 {
+            text-align: center;
+            color: teal;
+        }
+
+        #tarea {
+            width: 80%;
+            border: 1px solid brown;
+            border-top-left-radius: 7px;
+            border-bottom-left-radius: 7px;
+            padding: 10px;
+
+        }
+
+        button {
+            border: 1px solid brown;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+            margin: -4px;
+            font-size: 21px;
+            width: 90px;
+            background-color: brown;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        li {
+            color: teal;
+            font-size: 20px;
+
+        }
+
+        li,
+        input {
+            cursor: pointer;
+        }
+
+        li input {
+            background-color: brown;
+            color: white;
+            border: 1px solid brown;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Tareas</h1>
+    <div class="container">
+        <div id="tareas">
+            <input type="text" placeholder="Nueva Tarea" id="tarea">
+            <button id="btn1">+</button>
+        </div>
+        <div class="lista">
+            <ul id="ul">
+
+            </ul>
+        </div>
+
+    </div>
+    <script>
+        var inputText = document.getElementById("tarea");
+        var button = document.getElementById("btn1");
+        var ul = document.getElementById("ul");
+        var li = document.getElementsByTagName('li');
+
+        button.addEventListener("click", add);
+        function add() {
+            var nuevoLi = document.createElement('li');
+            var inputLi = document.createElement('input');
+            if (inputText.value != "") {
+
+                nuevoLi.innerHTML = inputText.value;
+                nuevoLi.appendChild(inputLi);
+                ul.appendChild(nuevoLi);
+
+                inputLi.setAttribute('type', 'button');
+                inputLi.setAttribute('value', 'quitar');
+
+                nuevoLi.addEventListener("click", up);
+                inputLi.addEventListener("click", clean);
+                inputText.value = "";
+            }
+        }
+
+        function up(ev) {
+            //li[0]
+            //ul.firstElementChild
+            ul.insertBefore(ev.target, ul.children[0]);
+        }
+        function clean(e) {
+            ul.removeChild(e.target.parentElement);
+            //porque mi lista tiene dos eventos click hay que pararlos
+            //con este metodo
+            e.stopPropagation();
+        }
+
+    </script>
+</body>
+
+</html>

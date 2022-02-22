@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: -10px;
+            height: 98vh;
+            width: 98vw;
+            background-image: url("http://picsum.photos/id/481/800/800");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: none;
+            color: black;
+
+        }
+
+        body {
+            background: black;
+        }
+
+        h3 {
+            color: rgb(255, 255, 255);
+            position: relative;
+            text-align: center;
+            top: 500px;
+            font-size: x-large;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Pulsa alt+F12 colocar una imagen de fondo. </h3>
+    <div id="cont" class="container">
+
+    </div>
+    <script>
+        document.body.addEventListener("keyup", mostrarImagen);
+        function mostrarImagen(e) {
+            
+            if (e.key == 'F12' && e.altKey) {
+                document.getElementById('cont').style.display = "inline-block";
+            }
+        }
+    </script>
+</body>
+
+</html>
