@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="description" content="Desarrollo Web en Entorno Cliente">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="js,javascript,outmane bouhou">
+    <meta name="author" content="OUTMANE BOUHOU">
+    <title>Outmane Bouhou</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set height of body and the document to 100% */
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Style tab links */
+
+        .tablink {
+
+            background-color: #555;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 20%;
+        }
+
+        .tablink:hover {
+            background-color: #777;
+        }
+
+        /* Style the tab content (and add height:100% for full page content) */
+        .tabcontent {
+            color: black;
+            display: none;
+            padding: 70px 20px;
+            height: 100%;
+        }
+
+        footer {
+
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: rgb(0, 162, 255);
+            color: white;
+            text-align: center;
+
+        }
+
+        div[id] {
+            margin-bottom: 35%;
+        }
+
+        body {
+            overflow: hidden;
+        }
+        #Home{
+            background-image: url(icons/mon.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        #Tema4,
+        #Tema3,
+        #Tema2 {
+            overflow: scroll;
+        }
+        footer{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="position:fixed; top: 0;width: 100%;">
+        <button class="tablink" onclick="openPage('Home', this, 'violet')"id="defaultOpen">Home</button>
+        <button class="tablink" onclick="openPage('Tema1', this, 'red')">Tema 1</button>
+        <button class="tablink" onclick="openPage('Tema2', this, 'green')">Tema 2</button>
+        <button class="tablink" onclick="openPage('Tema3', this, 'blue')">Tema 3</button>
+        <button class="tablink" onclick="openPage('Tema4', this, 'orange')" >Tema 4</button>
+    </div>
+    <div id="Home" class="tabcontent">
+        <h1 style="color: white;text-shadow:1px 1px 0 #444">Desarrollo Web en Entorno Cliente</h1>
+        <h4 style="padding-left: 10px;background-color: aqua;width: 40%;font-weight: bold;">TODOS LOS EJERCICIOS PRÁCTICOS DE TEMAS</h4>
+    </div>
+
+    <div id="Tema1" class="tabcontent">
+        <h3>RESUMEN TEMA 1</h3>
+
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 1/Resumen UD1.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Resumen de Tema 1</a>
+                </p>
+            </div>
+
+        </div>
+        <hr>
+    </div>
+
+    <div id="Tema2" class="tabcontent ">
+        <h3>EJERCICIOS PRÁCTICOS TEMA 2</h3>
+        <h4>Practica 1</h4>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 2/Practica 1.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Practica 1</a>
+                </p>
+            </div>
+            <a href="TEMA 2/Ejercicios2Practica1.html" target="_blank" class="w3-button w3-white w3-border">Ejercicios
+                de 1 a 9</a>
+        </div>
+        <hr>
+        <h4>Practica 2</h4>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 2/Practica 2.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Practica 2</a>
+                </p>
+            </div>
+            <a href="TEMA 2/ejercicios2Practica2.html" target="_blank" class="w3-button w3-white w3-border">Ejercicios
+                de 1 a 5</a>
+        </div>
+        <hr>
+
+    </div>
+
+    <div id="Tema3" class="tabcontent">
+        <h3>EJERCICIOS PRÁCTICOS TEMA 3</h3>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 3/Ejercicio 1.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Practica 1</a>
+                </p>
+            </div>
+            <a href="TEMA 3/ejercicio1/Ejercicio1_OUTMANE_BOUHOU Arrays.html" target="_blank"
+                class="w3-button w3-white w3-border">Ejercicio 1 </a>
+            <a href="TEMA 3/ejercicio1/Ejercicio2_OUTMANE_BOUHOU.html" target="_blank"
+                class="w3-button w3-white w3-border">Ejercicio 2</a>
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 3/Ejercicio 2.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Practica 2</a>
+                </p>
+            </div>
+            <a href="TEMA 3/ejercicio2/ConjuntosYmaps_OUTMANE_BOUHOU.pdf" target="_blank"
+                class="w3-button w3-white w3-border">Ejercicio 1 </a>
+
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 3/Ejercicio 3.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Practica 3</a>
+                </p>
+            </div>
+            <a href="TEMA 3/Ejercicio3/Ejercicio3_OUTMANE_BOUHOU.html" target="_blank"
+                class="w3-button w3-white w3-border">Ejercicio 1 </a>
+
+        </div>
+        <hr>
+    </div>
+    <div id="Tema4" class="tabcontent">
+        <h3>EJERCICIOS PRÁCTICOS TEMA 4</h3>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 4/EJERCICIOS STRING.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Objeto String</a>
+                </p>
+            </div>
+            <a href="TEMA 4/Tareas/ejerciciosStringOUTMANE_BOUHOU.html" target="_blank"
+                class="w3-button w3-white w3-border">Objeto String </a>
+
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 4/EJERCICIOS DATE.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Objeto Date</a>
+                </p>
+            </div>
+            <a href="TEMA 4/Tareas/ejerciciosDateOUTMANE_BOUHOU .html" target="_blank"
+                class="w3-button w3-white w3-border">Objeto Date</a>
+
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 4/EJERCICIOS EXPRESIONES REGULARES.pdf" target="_blank" class="w3-serif w3-xlarge">
+                        PDF Expresiones Regulares</a>
+                </p>
+            </div>
+            <a href="TEMA 4/Tareas/ejerciciosExpRegOUTMANE_BOUHOU .html" target="_blank"
+                class="w3-button w3-white w3-border">Expresiones Regulares </a>
+
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 4/EJERCICIOS OBJETOS DEFINIDOS POR EL USUARIO.pdf" target="_blank"
+                        class="w3-serif w3-xlarge">
+                        PDF Objetos/Clases</a>
+                </p>
+            </div>
+            <a href="TEMA 4/Tareas/ejerciciosObjetos_clasesOUTMANE_BOUHOU .html" target="_blank"
+                class="w3-button w3-white w3-border">Objetos/Clases </a>
+
+        </div>
+        <hr>
+        <div class="w3-container">
+            <div class="w3-panel w3-sand w3-leftbar">
+                <p>
+                    <a href="TEMA 4/EJERCICIO HERENCIA.pdf EXPRESIONES REGULARES.pdf" target="_blank"
+                        class="w3-serif w3-xlarge">
+                        PDF Herencia</a>
+                </p>
+            </div>
+            <a href="TEMA 4/Tareas/ejerciciosHerenciaOUTMANE_BOUHOU.html" target="_blank"
+                class="w3-button w3-white w3-border">Herencia </a>
+
+        </div>
+        <hr>
+    </div>
+
+    <footer>
+        <p style="color: black;font-weight: bold;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            Copyright © 2021 OUTMANE BOUHOU. All rights reserved.</p>
+        <a href="https://github.com/outmaneBH/proyectoDWEC/tree/master/public_html" target="_blank"><img src="icons/git.png" style="width: 38px;height: 38px;" alt="GitHub"/></a>
+    </footer>
+
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUTMANE_BOUHOU_Ejercicio Practico Tema4:Strings</title>
+  <style>
+    table {
+      width: 40%;
+      height: 200px;
+      border-collapse: collapse;
+    }
+
+    table td,
+    tr {
+      text-align: center;
+    }
+
+    .day {
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    do {
+      key = parseInt(prompt("Introduzca que Ejercicio quieres (1,2,3,4):"));
+      switch (key) {
+        case 1:
+          var dias = [
+            "domingo",
+            "lunes",
+            "martes",
+            "miercoles",
+            "jueves",
+            "viernes",
+            "sabado",
+          ];
+          var date = new Date(prompt("Introduzca Tu fecha de nacimiento "));
+
+          alert(
+            " El día de la semana en que naciste es : " +
+            dias[date.getDay()] +
+            " en " +
+            date.getFullYear()
+          );
+          for (let x = date.getFullYear(); x < 2021; x++) {
+            date.setFullYear(date.getFullYear() + 1);
+            document.write(
+              "En el año " +
+              date.getFullYear() +
+              " tu cumpleaños estaba en " +
+              dias[date.getDay()] +
+              "<br>"
+            );
+          }
+
+          break;
+        case 2:
+          function fechafun() {
+            var fechatot = prompt(
+              "Introduzca fecha en este formato aaaa/mm/dd hh:mm:ss "
+            );
+            var date;
+            //var fecha = new Date(año, mes, dia, hora, minutos, segundos);
+            if (fechatot == "") {
+              var fecha = new Date();
+            } else {
+              var fecha = new Date(fechatot);
+            }
+            let dias = [
+              "domingo",
+              "lunes",
+              "martes",
+              "miercoles",
+              "jueves",
+              "viernes",
+              "sabado",
+            ];
+            var meses = [
+              "Enero",
+              "Febrero",
+              "Marzo",
+              "Abril",
+              "Mayo",
+              "Junio",
+              "Julio",
+              "Agosto",
+              "Septiembre",
+              "Octubre",
+              "Noviembre",
+              "Diciembre",
+            ];
+
+            alert(
+              '" Hoy es ' +
+              dias[fecha.getDay()] +
+              ", " +
+              fecha.getDate() +
+              " de " +
+              meses[fecha.getMonth()] +
+              " de " +
+              fecha.getFullYear() +
+              " y son las " +
+              fecha.getHours() +
+              " horas, " +
+              fecha.getMinutes() +
+              " minutos y " +
+              fecha.getSeconds() +
+              ' segundos."'
+            );
+          }
+          fechafun();
+          break;
+
+        case 3:
+          let mes = prompt("Introduzca el mes");
+          let año = prompt("Introduzca el año");
+          var fecha = new Date(año, mes, 1);
+          let days = ["D", "L", "M", "Mi", "J", "V", "S"];
+          var meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",];
+          dia = fecha.getDay();
+          mes = fecha.getMonth();
+
+
+          document.write(meses[fecha.getMonth()] + " de " + fecha.getFullYear());
+
+
+          document.write("<table border='2px'>");
+          document.write("<tr>");
+          for (const key in days) {
+            document.write("<td>" + days[key] + "</td>");
+          }
+          document.write("</tr>");
+
+          for (let i = 0; i < 5; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < 7; j++) {
+              if (j == dia) {
+                for (let a = 0; a < (7 - j); a++) {
+                  document.write("<td>" + fecha.getDate() + "</td>");
+                  fecha.setDate(fecha.getDate() + 1);
+                }
+                break;
+              }
+              if (mes == fecha.getMonth()) {
+                document.write("<td>" + fecha.getDate() + "</td>");
+                fecha.setDate(fecha.getDate() + 1);
+              } else {
+                document.write("<td></td>");
+              }
+            }
+            document.write("</tr>");
+          }
+
+         /* while (mes == fecha.getMonth()) {
+            for (let j = 0; j < 7; j++) {
+              if (mes == fecha.getMonth()) {
+                document.write("<td>" + fecha.getDate() + "</td>");
+                fecha.setDate(fecha.getDate() + 1);
+              } else {
+                document.write("<td></td>");
+              }
+
+            }
+          }*/
+          document.write("</table>");
+          break;
+        case 4:
+
+          const map = new Map();
+
+          function NumerosAleatorios(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+          }
+
+          for (let x = 1; x <= 100; x++) {
+            myDate = new Date(NumerosAleatorios(1980, 2020) + "-" + NumerosAleatorios(1, 12) + "-" + NumerosAleatorios(1, 31));
+            map.set(x, myDate.getFullYear() + "-" + myDate.getMonth() + "-" + myDate.getDay());
+          }
+          console.log(map);
+          month = parseInt(prompt("El mes :"));
+
+          for (let [key, valor] of map) {
+            myDate = new Date(valor);
+            var a = myDate.getMonth();
+        
+            if (!isNaN(a))
+              if (month == a+1) {
+                document.write("Persona " + key, " : " + valor + "<br>");
+              }
+          }
+          break;
+
+        default:
+          alert("No existe este numero intenta otra vez.");
+          break;
+      }
+    } while (key == null);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUTMANE_BOUHOU:EJERCICIOS EXPRESIONES REGULARES</title>
+</head>
+
+<body>
+  <script>
+    do {
+      key = parseInt(prompt("Introduzca que Ejercicio quieres (1,2,3):"));
+      switch (key) {
+        case 1:
+          let codpos = prompt("Introduzca un codigo postal");
+
+          let RegExp = /^((5[0-2])|([0-4][0-9]))([0-9]{3})$/;
+          alert(codpos);
+          if (RegExp.test(codpos)) {
+            alert("El codigo postal esta valido");
+          } else {
+            alert("El codigo postal no es valido intenta de nuevo");
+          }
+
+          break;
+        case 2:
+          let doc = prompt("introduzca un documento");
+          let RegExpr = /^[A-Za-z0-9]+\.(pdf | docx)$/;
+          if (RegExpr.test(doc)) {
+            alert(doc + " : valido");
+          } else {
+            alert(doc + " : no es valido ");
+          }
+          break;
+
+        case 3:
+          function validardni(dni) {
+            var numero, numeros;
+            let RegExprdni = /^[XYZ0-9][0-9]{7}[A-Z]$/;
+            var letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+
+            if (RegExprdni.test(dni)) {
+              if (dni.charAt(0) == 'X')
+                numero = 0;
+
+              else if (dni.charAt(0) == 'Y')
+                numero = 1;
+
+              else if (dni.charAt(0) == 'Z')
+                numero = 2;
+              else numero = dni.charAt(0);
+
+              numeros = Number(numero + dni.slice(1, 8));
+
+              let nummif = (numeros % 23);
+              let let1 = dni.substr(dni.length - 1, 1);
+              let let2 = letras.substring(nummif, nummif + 1);
+
+              if (let1==let2) {
+                document.write("DNI  IS CORRECT");
+              }
+              else {
+                document.write("DNI ISN'T CORRECT");
+              }
+
+            } else {
+              alert(dni + " : no es valido ");
+            }
+          }
+          validardni(prompt("DNI O NIF"));
+          break;
+
+        default:
+          alert("No existe este numero intenta otra vez.");
+          break;
+      }
+    } while (key == null);
+  </script>
+</body>
+
+</html>

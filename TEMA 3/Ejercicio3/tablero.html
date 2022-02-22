@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var minas = false;
+        var tamfilas = parseInt(prompt("Cuantas filas"));
+        var tamcolumnas = parseInt(prompt("Cuantas columnas"));
+
+        tablero = new Array(tamfilas);
+        for (let i = 0; i < tamcolumnas; i++) {
+
+            tablero[i] = new Array(tamcolumnas);
+        }
+
+        for (let i = 0; i < tamfilas; i++) {
+
+            for (let j = 0; j < tamcolumnas; j++) {
+                tablero[i][j] = 0;
+            }
+        }
+        colocarminas(tablero, ancho, alto, nMinas);
+        colocarNumeros(tablero, ancho, alto);
+        function colocarNumeros(tablero, ancho, alto) {
+            for (let i = 0; i < tamfilas; i++) {
+
+                for (let j = 0; j < tamcolumnas; j++) {
+                    colocarCelda(tablero, i, j);
+                }
+            }
+        }
+        //celdas
+        function colocarCelda(tablero, fila, columna) {
+            let con = 0;
+            if (tablero[fila][columna] != HAY_MINA) {
+
+                if (fila > 0) {
+                    if (tablero[fila - 1][columna - 1] == HAY_MINA) {
+                        con++;
+                    }
+                    if (tablero[fila + 1][columna - 1] == HAY_MINA) {
+                        con++;
+                    }
+                    if (fila < tablero.length - 1) {
+                        if (tablero[fila + 1][columna - 1] == HAY_MINA) {
+                            con++;
+                        }
+                    }
+
+                }
+                if (columna<tablero[fila - 1]) {
+                    if (tablero[fila - 1][columna - 1] == HAY_MINA) {
+                        con++;
+                    }
+                    if (tablero[fila + 1][columna - 1] == HAY_MINA) {
+                        con++;
+                    }
+                    if (fila < tablero.length - 1) {
+                        if (tablero[fila + 1][columna - 1] == HAY_MINA) {
+                            con++;
+                        }
+                    }
+
+                }
+
+
+
+                return tablero;
+            }
+    </script>
+</body>
+
+</html>

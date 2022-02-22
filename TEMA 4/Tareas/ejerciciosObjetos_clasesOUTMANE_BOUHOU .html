@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUTMANE_BOUHOU_Ejercicio Practico Tema4:Objetos/Clases</title>
+</head>
+
+<body>
+  <script>
+    do {
+      key = parseInt(prompt("Introduzca que Ejercicio quieres (1,2,3,4):"));
+      switch (key) {
+        case 1:
+          class Punto {
+            //a.Que tengan dos propiedades xe y. Las coordenadas del punto.Estas coordenadas se pasan por parámetro y si no se pasa nada por defecto será 0.
+            constructor(x = 0, y = 0) {
+              this.x = x;
+              this.y = y;
+            }
+            //b.Un método llamado cambiaral que le pasemos 2 números y nos permite modificar las coordenadasdel punto.
+            cambiar(num1, num2) {
+              this.x = num1;
+              this.y = num2;
+            }
+
+            //c.Un método llamado copia que devuelve una copia del objeto.
+            copia() {
+              return new Punto(this.x, this.y);
+            }
+            //d.Un métodollamado iguales que recibe otro punto como parámetro y nos dice si son igualeso no.
+
+            iguales(otropunto) {
+              if (otropunto.x == this.x && otropunto.y == this.y) {
+                console.log("puntos Son iguales");
+              } else {
+                console.log("puntos no Son iguales");
+              }
+            }
+            //e.Un método llamado sumaque recibe un segundo punto y devuelve un tercer punto cuyas coordenadas son el resultado de sumar las dos anteriores.
+            suma(segundoPunto) {
+              if (segundoPunto instanceof Punto) {
+                return new Punto(
+                  this.x + segundoPunto.x,
+                  this.y + segundoPunto.y
+                );
+              } else {
+                return this;
+              }
+            }
+            //Un método llamado obtenerDistancia que también recibe un punto y nos devuelve la distancia entre ambos, teniendo en cuenta lo siguiente:
+            obtenerDistancia(punto) {
+              if (punto instanceof Punto) {
+                return Math.sqrt(
+                  (Math.pow(punto.x - this.x), 2) +
+                  (Math.pow(punto.y - this.y), 2)
+                );
+              } else {
+                return this;
+              }
+            }
+            //g.Un método toString que devuelve un texto con las coordenadas del punto. Por ejemplo (-8, 3).
+            toString() {
+              return console.log(
+                "Las coordenadas del punto son (" +
+                this.x +
+                " , " +
+                this.y +
+                ")"
+              );
+            }
+          }
+          const mipunto = new Punto(1, 3);
+          // mipunto.cambiar(5,10);
+          // mipunto.iguales(5);
+
+          mipunto.copia();
+          mipunto.toString();
+
+          mipunto.iguales(parseInt(prompt("Un punto")));
+          mipunto.suma(parseInt(prompt("Un punto para suma")));
+          mipunto.toString();
+
+          break;
+        case 2:
+          //crear el Array
+          let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+          // Añadir un método al prototipo de los arrays
+          Array.prototype.media = function () {
+            let suma = 0;
+            for (const x of this) {
+              suma += x;
+            }
+
+            //devuelva la media aritmética de los elementos de un array
+            return suma / this.length;
+          };
+          console.log(
+            "La media aritmética de los elementos de un array :" +
+            array.media()
+          );
+          break;
+
+        case 3:
+          Math.mcm = (a, b) => {
+            /* a = parseInt(Number(a));
+           b = parseInt(Number(b));
+ 
+           if (isNaN(a) || isNaN(b)) {
+             return isNaN();
+           }
+ 
+           a = Math.abs(a);
+           b = Math.abs(b);*/
+            console.log(a, b);
+            return (a * b) / Math.mcd(a, b);
+          };
+          Math.mcd = (a, b) => {
+            /*  a = parseInt(Number(a));
+            b = parseInt(Number(b));
+ 
+            if (isNaN(a) || isNaN(b)) {
+              return isNaN();
+            }
+ 
+            a = Math.abs(a);
+            b = Math.abs(b);*/
+            if (a % b != 0) return Math.mcd(b, a % b);
+            else return b;
+          };
+          class Fraccion {
+            #numerador;
+            #denominador;
+            constructor(numerador, denominador) {
+              this.#numerador = numerador;
+              this.#denominador = denominador;
+            }
+            getNumerador() {
+              return this.#numerador;
+            }
+            setNumerador(numerador) {
+              this.#numerador = numerador;
+            }
+            getDenominado() {
+              return this.#denominador;
+            }
+            setDenominado(denominador) {
+              this.#denominador = denominador;
+            }
+            cambiarFraccion(numerador, denominador) {
+              this.setNumerador(numerador);
+              this.setDenominado(denominador);
+            }
+            simplificar() {
+              if (this.#numerador != 0 && this.#denominador != 0) {
+                if (Math.sign() == Math.sign()) {
+                  this.#numerador = Math.abs(this.#numerador);
+                  this.#denominador = Math.abs(this.#denominador);
+                } else {
+                  if (this.#numerador >= 0) {
+                    this.#numerador = -this.#numerador;
+                    this.#denominador = -this.#denominador;
+                  }
+                }
+                let mcd = Math.mcd(this.#numerador, this.#denominador);
+                this.#numerador /= mcd;
+                this.#denominador /= mcd;
+              }
+            }
+            suma(f) {
+              let mcm = Math.mcm(this.#denominador, f.getDenominado());
+              let denores = mcm;
+              let numres =
+                (mcm / this.#denominador) * this.#numerador +
+                (mcm / f.getDenominado()) * f.getNumerador();
+              let res = new Fraccion(numres, denores);
+              res.simplificar();
+              return res;
+            }
+            resta(f) {
+              let mcm = Math.mcm(this.#denominador, f.getDenominado());
+              let denores = mcm;
+              let numres =
+                (mcm / this.#denominador) * this.#numerador -
+                (mcm / f.getDenominado()) * f.getNumerador();
+              let res = new Fraccion(numres, denores);
+              res.simplificar();
+              return res;
+            }
+            multiplicacion(f) {
+              let res = new Fraccion(
+                this.#numerador * f.getNumerador(),
+                this.#denominador * f.getDenominado()
+              );
+              res.simplificar();
+              return res;
+            }
+            division(f) {
+              let res = new Fraccion(
+                this.#denominador * f.getDenominado(),
+                this.#numerador * f.getNumerador()
+              );
+              res.simplificar();
+              return res;
+            }
+
+            toString() {
+              return console.log(this.#numerador + " , " + this.#denominador);
+            }
+          }
+          const f1 = new Fraccion(3, 2);
+          const fsuma = new Fraccion(10, 5);
+          const fmult = new Fraccion(2, 5);
+          const frest = new Fraccion(4, 7);
+          const fdiv = new Fraccion(6, 9);
+
+          console.log(f1.getNumerador());
+          console.log(f1.getDenominado());
+
+          f1.suma(fsuma).toString();
+          f1.resta(frest).toString();
+          f1.division(fdiv).toString();
+          f1.multiplicacion(fmult).toString();
+
+          break;
+        case 4:
+          let arrayPalo = ["", "oros", "espadas", "Bastos", "Copas"];
+          let arrayValor = ["",
+            "As",
+            "dos",
+            "tres",
+            "cuatro",
+            "cinco",
+            "seis",
+            "siete",
+            "sota",
+            "caballo",
+            "rey",
+          ];
+          class Carta {
+            constructor(palo, valor) {
+              if (palo >= 1 || palo <= 4 || valor >= 1 || valor <= 10) {
+                this.palo = palo;
+                this.valor = valor;
+              } else {
+                this.palo = null;
+                this.valor = null;
+              }
+            }
+            darvalor(palo, valor) {
+              if (palo >= 1 || palo <= 4 || valor >= 1 || valor <= 10) {
+                this.palo = palo;
+                this.valor = valor;
+              } else {
+                this.palo = null;
+                this.valor = null;
+              }
+
+            }
+            toString() {
+              return console.log(
+                arrayValor[this.valor] + " de " + arrayPalo[this.palo]
+              );
+            }
+          }
+          /* let paloP = parseInt(prompt("Palo"));
+           let valorP = parseInt(prompt("Valor"));
+
+           const micarta = new Carta(paloP, valorP);*/
+          const micarta = new Carta(1, 1);
+          micarta.toString();
+
+          //BARAJAS
+
+          class Barja {
+            constructor() {
+              this.cartas = [];
+              for (let i = 1; i <= 4; i++) {
+                for (let j = 1; j <= 10; j++) {
+                  this.cartas.push(new Carta(i, j));
+
+                }
+              }
+              
+              /*
+             let x=1;z=1;
+               for (let i = 1; i <= 40; i++) {
+                  this.cartas.push(new Carta(x, z));
+                  z++;
+                  if(z==10)
+                  {
+                    z=1;
+                    x++;
+                  }
+                }
+              }
+              */
+            }
+
+            barajar() {
+              for (let i = this.cartas.length; i > 1; i--) {
+                let j = parseInt(Math.random() * i) + 1;
+                [this.cartas[i], this.cartas[j]] = [
+                  this.cartas[j],
+                  this.cartas[i],
+                ];
+              }
+            }
+            toString() {
+              return this.cartas.toString();
+            }
+          }
+
+          const mibaraja = new Barja();
+          mibaraja.barajar();
+          mibaraja.toString();
+          break;
+        default:
+          alert("No existe este numero intenta otra vez.");
+          break;
+      }
+    } while (key == null);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OUTMANE_BOUHOU_Ejercicio Practico Tema4:Strings</title>
+  </head>
+
+  <body>
+    <script>
+      do {
+        key = parseInt(prompt("Introduzca que Ejercicio quieres (1,2,3):"));
+        switch (key) {
+          case 1:
+            var texto = prompt("Introduzca el TEXTO");
+            var clave = parseInt(prompt("Introduzca el CLAVE"));
+            var text = "";
+            for (var i = 0; i < texto.length; i++) {
+              var pos = texto.charCodeAt(i);
+              text += String.fromCharCode(pos + clave);
+            }
+            document.write(text);
+            break;
+          case 2:
+            function palindromo(texto) {
+              texto = prompt("Introduzca el TEXTO");
+              //array de caracteres
+              var arrayCara = [
+                '"',
+                "!",
+                " ",
+                "@",
+                ")",
+                "(",
+                ".",
+                ",",
+                ":",
+                ";",
+              ];
+              var arrayBien = [];
+              var especial = false;
+
+              //rempalazar los cracteres que tienen tildes
+              var textoR = texto;
+              do {
+                texto = textoR;
+                textoR = textoR.replace("á", "a");
+                textoR = textoR.replace("é", "e");
+                textoR = textoR.replace("í", "i");
+                textoR = textoR.replace("ó", "o");
+                textoR = textoR.replace("ú", "u");
+
+                textoR = textoR.replace("à", "a");
+                textoR = textoR.replace("è", "e");
+                textoR = textoR.replace("ì", "i");
+                textoR = textoR.replace("ò", "o");
+                textoR = textoR.replace("ù", "u");
+              } while (texto != textoR);
+              texto = textoR;
+
+              //quitar los espacios y los caracteres que tenemos en el array de caracteres
+              for (j in texto) {
+                especial = false;
+                for (i in arrayCara) {
+                  if (texto[j] == arrayCara[i]) {
+                    especial = true;
+                  }
+                }
+                if (!especial) {
+                  arrayBien.push(texto[j]);
+                }
+              }
+
+              //comprobar si es palindroma
+              texto = arrayBien.join("");
+              var textoEn = texto.split("");
+              var textoRe = texto.split("").reverse();
+              for (b in textoEn) {
+                if (textoEn[b] == textoRe[b]) {
+                  return document.write("la palabra es palindroma");
+                } else {
+                  return document.write("la palabra no es palindroma");
+                }
+              }
+            }
+            palindromo();
+
+            break;
+
+          case 3:
+            function anagrama(/*palabra1, palabra2*/ arrayPalabras) {
+              arrayPalabras = [];
+              bpalabras = [];
+
+              for (let i = 1; i <= 2; i++) {
+                arrayPalabras.push(prompt("Palabra " + i));
+              }
+              for (let palabra of arrayPalabras) {
+                bpalabras.push(palabra.toLowerCase().split("").sort());
+              }
+
+              var encuentra = false;
+              for (var i = 0; i < bpalabras.length; i++) {
+                bpalabras[i] = bpalabras[i].join("");
+
+                if (bpalabras[0] == bpalabras[1]) {
+                  encuentra = true;
+                  break;
+                }
+              }
+              document.write("El array es :  "+bpalabras+" <br>");
+              if (encuentra) {
+                document.write("la palabra uno es anagrama de la segunda.");
+              } else {
+                document.write("Las palabras no son iguales.");
+              }
+            }
+
+            anagrama();
+
+            break;
+
+          default:
+            alert("No existe este numero intenta otra vez.");
+            break;
+        }
+      } while (key == null);
+    </script>
+  </body>
+</html>

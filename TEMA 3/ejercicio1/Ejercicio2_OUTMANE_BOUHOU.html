@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTMANE BOUHOU:Ejercicio 2 - Arrays</title>
+    <style>
+        table {
+            height: 500px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #ocupada {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        //ejercicio 2
+        var ocupada = false;
+        const TAM_FILAS = 10;
+        const TAM_COLUMNAS = 10;
+        const TAM_PORTAVIONES = 4;//2
+        const TAM_ACORAZADOS = 3;//3
+        const TAM_DESTRUCTORES = 2;//3
+        const TAM_FRAGATAS = 1;//1
+        let cont = 0;
+        let fila = 0;
+        let columna = 0;
+
+        var tablero = new Array(TAM_FILAS);
+        for (let i = 0; i < TAM_FILAS; i++) {
+            tablero[i] = new Array(TAM_COLUMNAS);
+            for (let j = 0; j < TAM_COLUMNAS; j++) {
+                tablero[i][j] = false;
+            }
+        }
+        while (cont < TAM_PORTAVIONES) {
+            let cont2 = 0;
+            let horizontal = parseInt(Math.random() * 2);
+            if (0) {
+                fila = parseInt(Math.random() * 10);
+                columna = parseInt(Math.random() * 7);
+                while (!ocupada && cont < 4) {
+                    if (tablero[fila][columna + cont2]) {
+                        ocupada = true;
+                        cont2++;
+                    }
+                    if (tablero[fila - 1][columna + cont2] && fila > 0) {
+                        ocupada = true; cont2++;
+                    }
+                    if (tablero[fila + 1][columna + cont2] && fila < 9) {
+                        ocupada = true; cont2++;
+                    }
+                }
+
+
+            } /*else {
+        fila = parseInt(Math.random() * 10);
+        columna = parseInt(Math.random() * 7);
+        while (!ocupada && cont2 < 4) {
+            if (tablero[columna][fila + cont2]) {
+                ocupada = true;
+                cont2++
+            }
+            if (tablero[columna - 1][fila + cont2] && fila > 0) {
+                ocupada = true; cont2++
+            }
+            if (tablero[columna + 1][fila + cont2] && fila < 9) {
+                ocupada = true; cont2++
+            }
+        }
+
+    }*/
+            if (ocupada == false) {
+                tablero[fila][columna] = true;
+                cont++;
+            } else {
+                tablero[fila][columna] = false;
+                cont++;
+            }
+        }
+        document.write("<table id='t1' border='1' >");
+        for (let i = 0; i < TAM_FILAS; i++) {
+            document.write("<tr>");
+            for (let j = 0; j < TAM_COLUMNAS; j++) {
+                if (tablero[i][j]) {
+                    document.write("<td id='ocupada'></td>");
+                }
+                else {
+                    document.write("<td id='vacia'></td>");
+                }
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    </script>
+</body>
+</html>

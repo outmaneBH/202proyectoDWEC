@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUTMANE BOUHOU:Ejercicio 1 - Arrays</title>
+    <style>
+        table {
+            height: 500px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #ocupada {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        //Ejercicio 1
+
+        var array = [];
+        var key, texto;
+        var salir = false;
+        do {
+            texto = prompt("Introduzca palabras.Y cancelar para Salir.");
+            if (texto != null) {
+                array.push(texto);
+            }
+
+        } while (texto != null);
+        do {
+            alert("1)Ver primera palabra insertada \n 2)Ver última palabra insertada \n 3)Ver todas las palabras \n 4)Ver la palabra más larga \n 5)Ver la palabra más corta \n 6)Número de palabras insertadas \n 7)Buscar una palabra \n 8)Borrar duplicados \n 9)Salir ");
+            key = parseInt(prompt("Que quieres ver :"));
+            switch (key) {
+                case 1:
+                    //Ver primera palabra insertada
+                    alert("primera palabra insertada :" + array[0]);
+                    break;
+                case 2:
+                    //Ver última palabra insertada
+                    alert("Ver última palabra insertada :" + array.pop());
+                    break;
+                case 3:
+                    //Ver todas las palabras
+                    alert("todas las palabras :" + array.join(" | "));
+                    break;
+                case 4:
+                    //Ver la palabra más larga
+                    var max = array[0];
+                    for (let x of array) {
+
+                        if (x.length > max.length) {
+                            max = x;
+                        }
+                    }
+                    alert("la palabra más larga :" + max);
+                    break;
+                case 5:
+                    //Ver la palabra más corta
+                    var min = array[0];
+                    for (let x of array) {
+                        if (x.length < min.length) {
+                            min = x;
+                        }
+                    }
+                    alert("la palabra más corta :" + min);
+                    break;
+                case 6:
+                    //Número de palabras insertadas
+                    alert("Número de palabras insertadas" + array.length);
+
+                    break;
+                case 7:
+                    //Buscar una palabra
+                    var palabra = prompt("palabra a buscar");
+                    alert("La palabra esta en : -> " + array.indexOf(palabra) + " <-");
+                    break;
+                case 8:
+                    //Borrar duplicados
+                    var i = 0;
+                    const noDep = [];
+                    for (let x of array) {
+                        if (!noDep.includes(x)) {
+                            noDep.push(x);
+                        }
+                    }
+                    alert(noDep);
+                    break;
+                case 9:
+                    salir = true;
+                    alert("ADIOS");
+                    break;
+                default: alert("Perdon no esta este numero ");
+                    salir = true;
+                    break;
+            }
+        } while (!salir);
+
+    </script>
+</body>
+
+</html>
